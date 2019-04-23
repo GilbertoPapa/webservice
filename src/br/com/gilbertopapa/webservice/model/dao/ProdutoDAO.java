@@ -1,5 +1,7 @@
 package br.com.gilbertopapa.webservice.model.dao;
 
+import br.com.gilbertopapa.webservice.exceptions.DAOExceptions;
+import br.com.gilbertopapa.webservice.exceptions.ErrorCode;
 import br.com.gilbertopapa.webservice.model.domain.Produto;
 
 import javax.persistence.EntityManager;
@@ -13,6 +15,10 @@ public class ProdutoDAO {
 
         try {
             produtos = em.createQuery("Select p from Produto p", Produto.class).getResultList();
+
+        } catch (RuntimeException e) {
+
+            throw new DAOExceptions("Erro ao recuperar todos os produtos do banco: " + e.getMessage(), ErrorCode.SERVER_ERROR.getCode());
 
         } finally {
             em.close();
@@ -28,12 +34,26 @@ public class ProdutoDAO {
         Produto produto = null;
 
 
+        if (id <= 0) {
+            throw new DAOExceptions("O id precisa ser maior do que 0.", ErrorCode.BAD_REQUEST.getCode());
+        }
+
+
         try {
             produto = em.find(Produto.class, id);
 
 
+        } catch (RuntimeException e) {
+
+            throw new DAOExceptions("Erro ao buscar produto por id no banco de dados: ", ErrorCode.SERVER_ERROR.getCode());
+
         } finally {
             em.close();
+        }
+
+
+        if (produto == null) {
+            throw new DAOExceptions("Produto de id \" + id + \" não existe.", ErrorCode.NOT_FOUND.getCode());
         }
 
         return produto;
@@ -43,6 +63,11 @@ public class ProdutoDAO {
     public Produto save(Produto produto) {
 
         EntityManager em = JPAUtil.getEntityManager();
+
+        if (!produtoIsValid(produto)) {
+
+            throw new DAOExceptions("Produto com dados incompletos", ErrorCode.BAD_REQUEST.getCode());
+        }
 
         try {
             em.getTransaction().begin();
@@ -61,6 +86,17 @@ public class ProdutoDAO {
         EntityManager em = JPAUtil.getEntityManager();
         Produto produtoManaged = null;
 
+
+        if (produto.getId() <= 0) {
+            throw new DAOExceptions("O id precisa der maior que 0", ErrorCode.BAD_REQUEST.getCode());
+
+        }
+
+        if (!produtoIsValid(produto)) {
+
+            throw new DAOExceptions("Produto com dados incompletos", ErrorCode.BAD_REQUEST.getCode());
+        }
+
         try {
             em.getTransaction().begin();
             produtoManaged = em.find(Produto.class, produto.getId());
@@ -69,6 +105,14 @@ public class ProdutoDAO {
             em.merge(produtoManaged);
 
             em.getTransaction().commit();
+        } catch (NullPointerException ex) {
+            em.getTransaction().rollback();
+            throw new DAOExceptions("Produto informado para atualização não existe: " +
+                    ex.getMessage(), ErrorCode.NOT_FOUND.getCode());
+        } catch (RuntimeException ex) {
+            em.getTransaction().rollback();
+            throw new DAOExceptions("Erro ao atualizar produto no banco de dados: " +
+                    ex.getMessage(), ErrorCode.SERVER_ERROR.getCode());
         } finally {
 
 
@@ -93,12 +137,32 @@ public class ProdutoDAO {
             em.remove(produto);
             em.getTransaction().commit();
 
+        } catch (NullPointerException ex) {
+            em.getTransaction().rollback();
+            throw new DAOExceptions("Produto informado para atualização não existe: " +
+                    ex.getMessage(), ErrorCode.NOT_FOUND.getCode());
+        } catch (RuntimeException ex) {
+            em.getTransaction().rollback();
+            throw new DAOExceptions("Erro ao atualizar produto no banco de dados: " +
+                    ex.getMessage(), ErrorCode.SERVER_ERROR.getCode());
         } finally {
 
             em.close();
         }
 
-
         return produto;
     }
+
+    private boolean produtoIsValid(Produto produto) {
+        try {
+            if ((produto.getNome().isEmpty()) || (produto.getQuantidade() < 0))
+                return false;
+        } catch (NullPointerException ex) {
+            throw new DAOExceptions("Produto com dados incompletos.", ErrorCode.BAD_REQUEST.getCode());
+        }
+
+        return true;
+    }
+
+
 }
