@@ -8,6 +8,69 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 public class ProdutoDAO {
+
+
+    public List<Produto> getByPagination(int fistResult, int maxResult) {
+
+        EntityManager em = JPAUtil.getEntityManager();
+        List<Produto> produtos = null;
+
+
+        try {
+            produtos = em.createQuery("Select p from Produto p ", Produto.class)
+                    .setFirstResult(fistResult)
+                    .setMaxResults(maxResult).
+                            getResultList();
+
+
+        } catch (RuntimeException e) {
+            throw new DAOExceptions("Erro ao buscar produtos no banco de dados" + e.getMessage(), ErrorCode.SERVER_ERROR.getCode());
+
+        } finally {
+            em.close();
+        }
+
+        if (produtos.isEmpty()) {
+
+            throw new DAOExceptions("Página com produtos vazia", ErrorCode.NOT_FOUND.getCode());
+
+        }
+
+
+        return produtos;
+    }
+
+
+    public List<Produto> getByName(String name) {
+        EntityManager em = JPAUtil.getEntityManager();
+        List<Produto> produtos = null;
+
+        try {
+
+            produtos = em.createQuery("Select p from Produto p Where p.nome like :name", Produto.class).setParameter("name", "%" + name + "%").getResultList();
+
+
+        } catch (RuntimeException e) {
+
+            throw new DAOExceptions("Erro ao buscar produto por nome no banco de dados:" + e.getMessage(), ErrorCode.SERVER_ERROR.getCode());
+
+
+        } finally {
+
+            em.close();
+
+        }
+
+
+        if (produtos.isEmpty()) {
+            throw new DAOExceptions("A consulta não retornou elementos", ErrorCode.NOT_FOUND.getCode());
+        }
+
+
+        return produtos;
+    }
+
+
     public List<Produto> getAll() {
         EntityManager em = JPAUtil.getEntityManager();
         List<Produto> produtos = null;
