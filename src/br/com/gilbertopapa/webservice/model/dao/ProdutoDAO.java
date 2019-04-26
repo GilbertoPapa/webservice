@@ -15,13 +15,11 @@ public class ProdutoDAO {
         EntityManager em = JPAUtil.getEntityManager();
         List<Produto> produtos = null;
 
-
         try {
             produtos = em.createQuery("Select p from Produto p ", Produto.class)
                     .setFirstResult(fistResult)
                     .setMaxResults(maxResult).
                             getResultList();
-
 
         } catch (RuntimeException e) {
             throw new DAOExceptions("Erro ao buscar produtos no banco de dados" + e.getMessage(), ErrorCode.SERVER_ERROR.getCode());
@@ -31,41 +29,31 @@ public class ProdutoDAO {
         }
 
         if (produtos.isEmpty()) {
-
             throw new DAOExceptions("Página com produtos vazia", ErrorCode.NOT_FOUND.getCode());
 
         }
 
-
         return produtos;
     }
-
 
     public List<Produto> getByName(String name) {
         EntityManager em = JPAUtil.getEntityManager();
         List<Produto> produtos = null;
 
         try {
-
             produtos = em.createQuery("Select p from Produto p Where p.nome like :name", Produto.class).setParameter("name", "%" + name + "%").getResultList();
 
-
         } catch (RuntimeException e) {
-
             throw new DAOExceptions("Erro ao buscar produto por nome no banco de dados:" + e.getMessage(), ErrorCode.SERVER_ERROR.getCode());
 
-
         } finally {
-
             em.close();
 
         }
 
-
         if (produtos.isEmpty()) {
             throw new DAOExceptions("A consulta não retornou elementos", ErrorCode.NOT_FOUND.getCode());
         }
-
 
         return produtos;
     }
@@ -75,19 +63,16 @@ public class ProdutoDAO {
         EntityManager em = JPAUtil.getEntityManager();
         List<Produto> produtos = null;
 
-
         try {
             produtos = em.createQuery("Select p from Produto p", Produto.class).getResultList();
 
         } catch (RuntimeException e) {
-
             throw new DAOExceptions("Erro ao recuperar todos os produtos do banco: " + e.getMessage(), ErrorCode.SERVER_ERROR.getCode());
 
         } finally {
             em.close();
 
         }
-
         return produtos;
     }
 
@@ -107,13 +92,11 @@ public class ProdutoDAO {
 
 
         } catch (RuntimeException e) {
-
             throw new DAOExceptions("Erro ao buscar produto por id no banco de dados: ", ErrorCode.SERVER_ERROR.getCode());
 
         } finally {
             em.close();
         }
-
 
         if (produto == null) {
             throw new DAOExceptions("Produto de id \" + id + \" não existe.", ErrorCode.NOT_FOUND.getCode());
@@ -128,7 +111,6 @@ public class ProdutoDAO {
         EntityManager em = JPAUtil.getEntityManager();
 
         if (!produtoIsValid(produto)) {
-
             throw new DAOExceptions("Produto com dados incompletos", ErrorCode.BAD_REQUEST.getCode());
         }
 
@@ -140,7 +122,6 @@ public class ProdutoDAO {
         } finally {
             em.close();
         }
-
         return produto;
     }
 
@@ -152,11 +133,9 @@ public class ProdutoDAO {
 
         if (produto.getId() <= 0) {
             throw new DAOExceptions("O id precisa der maior que 0", ErrorCode.BAD_REQUEST.getCode());
-
         }
 
         if (!produtoIsValid(produto)) {
-
             throw new DAOExceptions("Produto com dados incompletos", ErrorCode.BAD_REQUEST.getCode());
         }
 
@@ -177,13 +156,9 @@ public class ProdutoDAO {
             throw new DAOExceptions("Erro ao atualizar produto no banco de dados: " +
                     ex.getMessage(), ErrorCode.SERVER_ERROR.getCode());
         } finally {
-
-
             em.close();
 
         }
-
-
         return produtoManaged;
     }
 
@@ -192,9 +167,7 @@ public class ProdutoDAO {
         EntityManager em = JPAUtil.getEntityManager();
         Produto produto = null;
 
-
         try {
-
             em.getTransaction().begin();
             produto = em.find(Produto.class, id);
             em.remove(produto);
@@ -209,10 +182,8 @@ public class ProdutoDAO {
             throw new DAOExceptions("Erro ao atualizar produto no banco de dados: " +
                     ex.getMessage(), ErrorCode.SERVER_ERROR.getCode());
         } finally {
-
             em.close();
         }
-
         return produto;
     }
 

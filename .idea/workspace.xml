@@ -354,6 +354,13 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/exceptions/DAOExceptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/exceptions/ErrorCode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
