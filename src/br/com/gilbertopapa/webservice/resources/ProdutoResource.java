@@ -27,6 +27,8 @@ public class ProdutoResource {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public Response save(Produto produto) {
         produto = service.saveProduto(produto);
         return Response.status(Response.Status.CREATED)
@@ -36,6 +38,8 @@ public class ProdutoResource {
 
     @PUT
     @Path("{produtoId}")
+    @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public void update(@PathParam("produtoId") long id, Produto produto) {
         produto.setId(id);
         service.updateProduto(produto);
@@ -43,8 +47,8 @@ public class ProdutoResource {
 
     @DELETE
     @Path("{produtoId}")
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public void delete(@PathParam("produtoId") long id) {
         service.deleteProduto(id);
     }
-
 }
