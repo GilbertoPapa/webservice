@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f434f91-bc0f-4e2f-a870-b03a81866f13" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/exceptions/DAOExceptionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/model/domain/ErrorMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/exceptions/DAOExceptionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/exceptions/DAOExceptionMapper.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -78,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/exceptions/DAOExceptions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="102">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -87,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/exceptions/DAOExceptionMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+            <state relative-caret-position="187">
+              <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/model/domain/ErrorMessage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="6" selection-end-column="21" />
+              <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="6" selection-end-column="21" />
               <folding>
                 <element signature="e#331#332#0" expanded="true" />
                 <element signature="e#361#362#0" expanded="true" />
@@ -145,7 +145,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-2" />
+    <option name="x" value="235" />
+    <option name="y" value="1078" />
     <option name="width" value="1366" />
     <option name="height" value="770" />
   </component>
@@ -155,12 +156,41 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+      <pane id="PackagesPane">
+        <subPane>
           <expand>
             <path>
-              <item name="webservice" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="webservice" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
+              <item name="webservice" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
+              <item name="webservice" type="616d4139:PackageViewModuleNode" />
+              <item name="br.com.gilbertopapa.webservice" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
+              <item name="webservice" type="616d4139:PackageViewModuleNode" />
+              <item name="br.com.gilbertopapa.webservice" type="1f31426a:PackageElementNode" />
+              <item name="exceptions" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
+              <item name="webservice" type="616d4139:PackageViewModuleNode" />
+              <item name="br.com.gilbertopapa.webservice" type="1f31426a:PackageElementNode" />
+              <item name="model" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
+              <item name="webservice" type="616d4139:PackageViewModuleNode" />
+              <item name="br.com.gilbertopapa.webservice" type="1f31426a:PackageElementNode" />
+              <item name="model" type="1f31426a:PackageElementNode" />
+              <item name="domain" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
+              <item name="webservice" type="616d4139:PackageViewModuleNode" />
+              <item name="main" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -194,34 +224,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
-              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
-              <item name="webservice" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
-              <item name="webservice" type="616d4139:PackageViewModuleNode" />
-              <item name="br.com.gilbertopapa.webservice" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
-              <item name="webservice" type="616d4139:PackageViewModuleNode" />
-              <item name="br.com.gilbertopapa.webservice" type="1f31426a:PackageElementNode" />
-              <item name="exceptions" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
-              <item name="webservice" type="616d4139:PackageViewModuleNode" />
-              <item name="br.com.gilbertopapa.webservice" type="1f31426a:PackageElementNode" />
-              <item name="model" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="webservice" type="58d84e3e:PackageViewProjectNode" />
-              <item name="webservice" type="616d4139:PackageViewModuleNode" />
-              <item name="main" type="1f31426a:PackageElementNode" />
+              <item name="webservice" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="webservice" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
           </expand>
           <select />
@@ -278,10 +286,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
+    <frame x="302" y="1105" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16080937" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.159109" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -295,7 +303,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49960095" weight="0.32899022" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49960095" visible="true" weight="0.49426487" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49960095" weight="0.4951613" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50039905" side_tool="true" weight="0.3306189" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -328,28 +336,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="49" selection-start-column="49" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/service/ProdutoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/resources/ProdutoResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -394,6 +380,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/exceptions/DAOExceptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/model/dao/ProdutoDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -404,10 +397,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/service/ProdutoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/resources/ProdutoResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/model/domain/ErrorMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="6" selection-end-column="21" />
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="6" selection-end-column="21" />
           <folding>
             <element signature="e#331#332#0" expanded="true" />
             <element signature="e#361#362#0" expanded="true" />
@@ -421,17 +436,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/exceptions/DAOExceptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/br/com/gilbertopapa/webservice/exceptions/DAOExceptionMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        <state relative-caret-position="187">
+          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
